@@ -12,7 +12,6 @@
     <title>Sign Up Form </title>
 
     <script type="text/javascript">
-    
         function validate(){
             pass=document.getElementById('password');
             conf_pass=document.getElementById('re_password');
@@ -44,7 +43,7 @@
                 <div class="signup-content">
                     
                     <form method="POST" id="signup-form" class="signup-form" action="/submitt_form">
-                         {% csrf_token %}
+                        {% csrf_token %}
                         
                         <h2 class="form-title">Create account</h2>
                         <div class="form-group">

@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS=True
 EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='sanketpandey619@gmail.com'
+EMAIL_HOST_USER='siddhantpandey118@gmail.com'
 EMAIL_PORT=587
-EMAIL_HOST_PASSWORD='sanket1999'
+EMAIL_HOST_PASSWORD='siddhant7899'
 
 
 import os
@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'startpage.apps.StartpageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'calc',
-    'startpage',
+    # 'startpage',
     'sadmin'
 ]
 
@@ -86,8 +87,11 @@ WSGI_APPLICATION = 'firstproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dawakhana',
+        'USER':'postgres',
+        'PASSWORD':'1234',
+        'HOST':'localhost'
     }
 }
 

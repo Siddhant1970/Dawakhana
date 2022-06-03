@@ -10,14 +10,7 @@ class Muser(models.Model):
         return self.muser.username
 
 
-class Raja(models.Model):
-    col_1=models.CharField(max_length=200)
-    col_2=models.TextField()
-    col_3=models.DateTimeField("date-published")
-    col_4=models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.col_1
 
 
 class Contact(models.Model):
@@ -31,12 +24,12 @@ class Contact(models.Model):
     def __str__(self):
         return self.firstname
 
-class RentVehichle(models.Model):
+class Shops(models.Model):
     username= models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     ownername= models.CharField(max_length=200)
     shop_name=models.CharField(max_length=200)
     address=models.CharField(max_length=200,null=True)
-    whatsapp_no=models.IntegerField(default=0)
+    whatsapp_no=models.BigIntegerField(default=0)
     status=models.IntegerField(default=0)
     hdstatus=models.CharField(max_length=200,null=True)
     shop_registration = models.FileField(upload_to='vehichle registration',default='')

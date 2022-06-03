@@ -13,6 +13,6 @@ urlpatterns=[
     path('logout',views.logout),
     path('contact',views.contact_form),
     path('sellerreg',views.sellerreg),
-    path('rentVehichle',views.rentVehichle),
+    path('shops',views.shops),
     path('prac',views.prac)
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from startpage.models import Muser,Raja,RentVehichle
+from startpage.models import Muser, Shops
 
 # Create your views here.
 def checkAdmin(id):
@@ -19,7 +19,7 @@ def adminpage(request):
     else:
         if checkAdmin(request.user.id):
             return redirect('/login')
-        m = RentVehichle.objects.all().order_by()[::-1] 
+        m = Shops.objects.all().order_by()[::-1] 
         context = {'med':m}
         return render(request,'shome.html',context)
 
@@ -30,7 +30,7 @@ def shopDetails(request, shop_id):
         if checkAdmin(request.user.id):
             return redirect('/music/login')
 
-        rent = RentVehichle.objects.get(id=shop_id)
+        rent = Shops.objects.get(id=shop_id)
         return render(request, 'shopDetails.html',{'shop':rent})
 
 def final(request):
@@ -38,17 +38,17 @@ def final(request):
         aid = request.POST.get('aid')
         approve = request.POST.get('approve')
         reject = request.POST.get('reject')
-        oname = RentVehichle.objects.get(id=aid)
+        oname = Shops.objects.get(id=aid)
         if approve==None:
             print(reject)
             oname.status = -1
 
             oname.save()
-            # rejectMail(mail bhej dena yaha se)
-            
+
+
         elif reject==None:
             print(approve)
             oname.status = 1
             oname.save()
-            #acceptMail(mail bhej dena yaha se)
+
     return redirect('adminhome')
